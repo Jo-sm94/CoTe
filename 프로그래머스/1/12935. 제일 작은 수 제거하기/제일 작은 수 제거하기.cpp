@@ -9,7 +9,7 @@ vector<int> solution(vector<int> arr) {
     
     arr.erase(min_element(arr.begin(), arr.end()));
     
-    if(arr.size() == 0){
+    if(arr.empty()){
         answer.push_back(-1);
     }else{
         answer = arr;
