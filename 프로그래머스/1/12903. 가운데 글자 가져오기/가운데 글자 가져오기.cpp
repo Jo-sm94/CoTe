@@ -9,8 +9,10 @@ string solution(string s) {
     
     
     if(s.length() % 2 == 0){
+        cout << s.length();
         answer = s.substr((s.length()/2)-1, 2);
     }else{
+        cout << s.length();
         answer = s.substr((s.length()/2), 1);
     }
     
