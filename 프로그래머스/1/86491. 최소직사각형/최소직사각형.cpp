@@ -10,12 +10,12 @@ int solution(vector<vector<int>> sizes) {
     
     for(int i = 0; i < sizes.size(); i++){
         
-        if(*sizes[i].begin() >= *sizes[i].rbegin()){ 
-            if(width < *sizes[i].begin()) width = *sizes[i].begin();
-            if(height < *sizes[i].rbegin()) height = *sizes[i].rbegin();
+        if(sizes[i][0] >= sizes[i][1]){ 
+            if(width < sizes[i][0]) width = sizes[i][0];
+            if(height < sizes[i][1]) height = sizes[i][1];
         }else{
-            if(height < *sizes[i].begin()) height = *sizes[i].begin();
-            if(width < *sizes[i].rbegin()) width = *sizes[i].rbegin();
+            if(height < sizes[i][0]) height = sizes[i][0];
+            if(width < sizes[i][1]) width = sizes[i][1];
         }
     }
     answer = width * height;
