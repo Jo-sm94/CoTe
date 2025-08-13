@@ -13,13 +13,9 @@ int solution(vector<int> citations) {
      
     while(true)
     {
-        int check = 0;
-        for(int i = 1; i<size; i++)
-        {
-            check = count_if(citations.begin(), citations.end(), [count](int x){
-                return x >= count;
-            });
-        }
+        int check = count_if(citations.begin(), citations.end(), [count](int x){
+            return x >= count;
+        });
         
         if(count <= check)
         {
