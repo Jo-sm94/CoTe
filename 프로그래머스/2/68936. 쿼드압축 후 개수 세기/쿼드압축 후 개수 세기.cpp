@@ -6,16 +6,16 @@ using namespace std;
 int zeroCount = 0;
 int oneCount = 0;
 
-void quad(int x, int y, int size, vector<vector<int>>& arr)
+void quad(int x, int y, int size, const vector<vector<int>>& arr)
 {
     int first = arr[x][y];
     bool isSame = true;
     
-    for(int i = x; i < x+size; ++i)
+    for(int i = x; i < x + size; ++i)
     {
-        for(int j = y; j < y+size; ++j)
+        for(int j = y; j < y + size; ++j)
         {
-            if(arr[i][j] != first)
+            if(first != arr[i][j])
             {
                 isSame = false;
                 break;
@@ -25,21 +25,16 @@ void quad(int x, int y, int size, vector<vector<int>>& arr)
     
     if(isSame)
     {
-        if(first == 0)
-        {
-            zeroCount++;
-        }
-        else
-        {
-            oneCount++;   
-        }
+        if(first == 0) zeroCount++;
+        if(first == 1) oneCount++;
     }
     else
     {
-        int half = size / 2;
+        int half = size/2;
+        
         quad(x, y, half, arr);
-        quad(x, y+half, half, arr);
         quad(x+half, y, half, arr);
+        quad(x, y+half, half, arr);
         quad(x+half, y+half, half, arr);
     }
 }
